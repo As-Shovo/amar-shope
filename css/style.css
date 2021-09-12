@@ -13,17 +13,22 @@ body {
   border: none;
 }
 .search-box {
-  border: 1px solid rgb(3, 118, 211);
-  width: 281px;
+  border: 1px solid rgb(3, 211, 183);
+  width: 500px;
   border-radius: 5px;
   margin: auto;
   margin-top: 50px;
-  border-right: none;
+  margin-bottom: 25px;
+  /* border-right: none; */
+  display: flex;
+  justify-content: flex-end;
 }
 .search-button {
   padding: 10px 50px;
   border-radius: 25px;
   margin-left: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 #all-products {
   display: grid;
@@ -59,6 +64,21 @@ body {
 }
 .cart-main {
   padding-right: 30px;
+}
+
+.amar-shop-title{
+  font-size: 60px;
+  font-weight: 800;
+  color: green;
+}
+.amr-shop-rating{
+  color: rgb(255, 0, 76);
+  font-weight: bold;
+}
+.details-product{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media only screen and (max-width: 768px) {
   #all-products {

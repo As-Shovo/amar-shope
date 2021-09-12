@@ -19,9 +19,11 @@ const showProducts = (products) => {
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
+      <h3>Rating: <span class='amr-shop-rating'>${product.rating.rate}</span></h3>
+      <h3>Count: <span class='amr-shop-rating'>${product.rating.count}</span></h3>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button onclick="showDetails(${product.id})" id="details-btn" class="btn btn-danger">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -74,6 +76,38 @@ const updateTaxAndCharge = () => {
   }
   updateTotal();
 };
+
+// Show Details Function
+
+const showDetails = (productId) =>{
+  const url = `https://fakestoreapi.com/products/${productId}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayShowDetails(data))
+}
+
+  const displayShowDetails = (details) =>{
+    console.log(details);
+    const showDiv = document.getElementById('show-details');
+    showDiv.textContent= '';
+    const div = document.createElement('div');
+    div.classList.add("container");
+    div.innerHTML = `
+    <div class="single-product mx-auto">
+        <div>
+          <img class="product-image" src=${details.image}></img>
+        </div>
+        <h3>${details.title}</h3>
+        <p><b>Category:</b> ${details.category}</p>
+        <p><b>Decription:</b> ${details.description.slice(0,100)}</p>
+        <h3><b>Rating:</b> <span class='amr-shop-rating'>${details.rating.rate}</span></h3>
+        <h3><b>Count:</b> <span class='amr-shop-rating'>${details.rating.count}</span></h3>
+        <h2><b>Price:</b> $ ${details.price}</h2>
+      </div>
+      
+      `;
+      showDiv.appendChild(div);
+  }
 
 //grandTotal update function
 const updateTotal = () => {
