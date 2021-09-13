@@ -91,17 +91,17 @@ const showDetails = (productId) =>{
     const showDiv = document.getElementById('show-details');
     showDiv.textContent= '';
     const div = document.createElement('div');
-    div.classList.add("container");
+    div.classList.add("product");
     div.innerHTML = `
-    <div class="single-product mx-auto">
+    <div class="single-product my-5 mx-auto">
         <div>
           <img class="product-image" src=${details.image}></img>
         </div>
         <h3>${details.title}</h3>
         <p><b>Category:</b> ${details.category}</p>
         <p><b>Decription:</b> ${details.description.slice(0,150)}</p>
-        <h3><b>Rating:</b> <span class='amr-shop-rating'>${details.rating.rate}</span></h3>
-        <h3><b>Count:</b> <span class='amr-shop-rating'>${details.rating.count}</span></h3>
+        <h3><b>Rating Avarage:</b> <span class='amr-shop-rating'>${details.rating.rate}</span></h3>
+        <h3><b>Rating Count:</b> <span class='amr-shop-rating'>${details.rating.count}</span></h3>
         <h2><b>Price:</b> $ ${details.price}</h2>
         <button onclick="addToCart(${details.id},${details.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       </div>
