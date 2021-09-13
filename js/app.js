@@ -18,9 +18,9 @@ const showProducts = (products) => {
     <img class="product-image" src=${image}></img>
       </div>
       <h3>${product.title}</h3>
-      <p>Category: ${product.category}</p>
-      <h3>Rating: <span class='amr-shop-rating'>${product.rating.rate}</span></h3>
-      <h3>Count: <span class='amr-shop-rating'>${product.rating.count}</span></h3>
+      <p><b>Category: ${product.category}</b></p>
+      <h4>Rating Avarage: <span class='amr-shop-rating'> ${product.rating.rate}</span></h4>
+      <h4>Rating Count: <span class='amr-shop-rating'>${product.rating.count}</span></h4>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button onclick="showDetails(${product.id})" id="details-btn" class="btn btn-danger">Details</button></div>
@@ -87,7 +87,7 @@ const showDetails = (productId) =>{
 }
 
   const displayShowDetails = (details) =>{
-    console.log(details);
+    // console.log(details);
     const showDiv = document.getElementById('show-details');
     showDiv.textContent= '';
     const div = document.createElement('div');
@@ -99,10 +99,11 @@ const showDetails = (productId) =>{
         </div>
         <h3>${details.title}</h3>
         <p><b>Category:</b> ${details.category}</p>
-        <p><b>Decription:</b> ${details.description.slice(0,100)}</p>
+        <p><b>Decription:</b> ${details.description.slice(0,150)}</p>
         <h3><b>Rating:</b> <span class='amr-shop-rating'>${details.rating.rate}</span></h3>
         <h3><b>Count:</b> <span class='amr-shop-rating'>${details.rating.count}</span></h3>
         <h2><b>Price:</b> $ ${details.price}</h2>
+        <button onclick="addToCart(${details.id},${details.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       </div>
       
       `;
